@@ -1,5 +1,6 @@
 # bhp-toolset
 -- Various Python Scripts
+--in development
 
 # networking
 
@@ -7,4 +8,4 @@
 #### tcp server
 #### udp client
 
-## nc 
+### nc like app 
