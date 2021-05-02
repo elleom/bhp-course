@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import socket
 import threading
 import argparse
@@ -36,7 +38,7 @@ class NetCat:
 
         try:  # supports CTRL+C KeyboardInterrupt -> close connection
             while True:
-                recv_len: 1
+                recv_len = 1
                 response = ''
                 while recv_len:
                     data = self.socket.recv(4096)
