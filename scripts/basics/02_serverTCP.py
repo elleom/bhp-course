@@ -5,11 +5,8 @@ bind_ip = "0.0.0.0"
 bind_port = 8080
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
 server.bind((bind_ip, bind_port))
-
 server.listen(5)  # params (max backlog amount)
-
 print("[+] Listening on %s:%d" % (bind_ip, bind_port))
 
 

@@ -2,7 +2,7 @@ import socket
 
 target_address_port = ("www.google.com", 80)
 
-# create UDP sockect
+# create UDP socket
 client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # send
