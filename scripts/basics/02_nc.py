@@ -34,6 +34,26 @@ class NetCat:
             if self.buffer:  # if buffer sends it
                 self.socket.send(self.buffer)
 
+            try:  # supports CTRL+C KeyboardInterrupt -> close connection
+                while True:
+                    recv_len: 1
+                    response = ''
+                    while recv_len:
+                        data = self.socket.recv(4096)
+                        recv_len = len(data)
+                        response += data.decode()
+                        if recv_len < 4096:
+                            break  # breaks loop if no data incoming
+                        if response:
+                            print(response)
+                            buffer = input('> ')  # prompt
+                            buffer += '\n'
+                            self.socket.send(buffer.encode())  # sends input and continues loop
+            except KeyboardInterrupt:
+                print('User Terminated')
+                self.socket.close()
+                sys.exit()
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='NC Like Tool',
