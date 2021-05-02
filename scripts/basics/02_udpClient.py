@@ -14,3 +14,4 @@ client.sendto(message, target_address_port)
 data = client.recvfrom(4096)
 
 print(data)
+client.close()

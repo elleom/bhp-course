@@ -16,7 +16,6 @@ upload_dest = ""
 port = 0
 
 
-
 def get_argument():
 
     # creates parser object
@@ -36,11 +35,11 @@ def get_argument():
     if not arguments.target:
         parser.error("Introduce gateway's IP")
     if not arguments.command:
-        parser.error("Introduce gateway's IP")
+        parser.error("Introduce command")
     if not arguments.upload_dest:
-        parser.error("Introduce gateway's IP")
+        parser.error("Introduce upload destination")
     if not arguments.execute:
-        parser.error("Introduce gateway's IP")
+        parser.error("Introduce exec command")
 
         # TODO finish parse options
         # ADD command , upload
@@ -55,7 +54,6 @@ def main():
     global command
     global upload_dest
     global target
-
 
     try:
         args = get_argument()
