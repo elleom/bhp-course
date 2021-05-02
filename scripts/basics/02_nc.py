@@ -25,9 +25,14 @@ class NetCat:
 
         def run(self):
             if self.args.listen:
-                self.listen()
+                self.listen()  # calls to listen method
             else:
-                self.send()
+                self.send()  # calls to send method
+
+        def send(self):
+            self.socket.connect((self.args.target, self.args.port))  # connects to the target
+            if self.buffer:  # if buffer sends it
+                self.socket.send(self.buffer)
 
 
 if __name__ == '__main__':
