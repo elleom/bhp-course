@@ -64,6 +64,8 @@ class NetCat:
                 )
                 client_thread.start()
 
+        # executes the task corresponding to the command line argument it receives
+        # if command then passes to the execute func and passes the output back on the socket.
         def handle(self, client_socket):
             if self.handle.execute:
                 output = execute(self.args.execute)
@@ -114,7 +116,7 @@ if __name__ == '__main__':
     # assign the value True to args.verbose. Not specifying it implies False.
 
     parser.add_argument('-e', '--execute', help='execute specified command')
-    parser.add_argument('l', '--listen', action='store_true', help='listen')
+    parser.add_argument('-l', '--listen', action='store_true', help='listen')
     parser.add_argument('-p', '--port', default=5555, help='specified port')
     parser.add_argument('-t', '--target', default='192.168.1.203', help='specified target')
     parser.add_argument('-u', '--upload', help='upload file')
